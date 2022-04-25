@@ -1,0 +1,5 @@
+{
+  // 这个属性的问题，设置为false！！！知道了不 蠢猪大拿知道了
+  "emmet.showSuggestionsAsSnippets": false,
+  "emmet.triggerExpansionOnTab": true
+}

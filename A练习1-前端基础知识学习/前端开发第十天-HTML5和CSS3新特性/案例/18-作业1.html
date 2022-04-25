@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作业1</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .clearfix:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+    }
+
+    .clearfix {
+      *zoom: 1;
+    }
+
+    .box {
+      width: 352px;
+      height: 450px;
+      margin: 100px auto;
+      border: 3px solid pink;
+      background-color: #fff;
+    }
+
+    img {
+      position: relative;
+      top: 30px;
+      left: 50%;
+      margin-left: -80px;
+      width: 160px;
+      height: 220px;
+    }
+
+    .introduction {
+      margin: 30px 10px;
+      color: gray;
+    }
+
+    .price {
+      margin: 0 10px 5px 10px;
+    }
+
+    .price .now {
+      font-size: 26px;
+      color: red;
+      font-weight: 700;
+    }
+
+    .price .pre {
+      color: gray;
+      text-decoration: line-through;
+    }
+
+    .sold,
+    .bar,
+    .remain {
+      float: left;
+    }
+
+    .sold {
+      margin: 0 10px;
+    }
+
+    .sold::after {
+      content: '87%';
+      color: red;
+    }
+
+    .bar {
+      width: 150px;
+      height: 15px;
+      margin-right: 10px;
+      border: 1px solid red;
+      border-radius: 7px;
+    }
+
+    .bar_in {
+      width: 87%;
+      height: 100%;
+      background-color: red;
+    }
+
+    .remain span {
+      color: red;
+    }
+
+    .btn {
+      width: 342;
+      height: 52px;
+      text-align: center;
+      background-color: #e60012;
+      margin: 5px 5px 2px 5px;
+    }
+
+    .btn span {
+      display: inline-block;
+      line-height: 52px;
+      color: #fff;
+      font-size: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <img src="images/xm.jpg" alt="">
+    <p class="introduction">
+      Apple苹果iPhone 6s Plus (A1699) 32G 金色 移动联通电信4G手机
+    </p>
+    <div class="price">
+      <span class="now">￥6088</span>
+      <span class="pre">￥6988</span>
+    </div>
+    <div class="sell clearfix">
+      <div class="sold">已售</div>
+      <div class="bar">
+        <div class="bar_in"></div>
+      </div>
+      <div class="remain">剩余<span>29</span>件</div>
+    </div>
+    <div class="btn"><span>立即抢购</span></div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作业2</title>
+  <style>
+    @font-face {
+      font-family: 'icomoon';
+      src: url('fonts/icomoon.eot?dc3i46');
+      src: url('fonts/icomoon.eot?dc3i46#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?dc3i46') format('truetype'),
+        url('fonts/icomoon.woff?dc3i46') format('woff'),
+        url('fonts/icomoon.svg?dc3i46#icomoon') format('svg');
+      font-weight: normal;
+      font-style: normal;
+      font-display: block;
+    }
+
+    .home {
+      width: 100px;
+      height: 100px;
+      margin: 100px auto;
+      background-color: #ff6a00;
+    }
+
+    #box {
+      position: relative;
+      width: 200px;
+      height: 100px;
+      transition: all .2s;
+    }
+
+    #box .fig {
+      position: absolute;
+      top: 50%;
+      margin-top: -20px;
+      font-family: 'icomoon';
+      font-size: 40px;
+      color: #fff;
+    }
+
+    #box .fig1 {
+      left: 0;
+      margin-left: 30px;
+    }
+
+    #box .fig2 {
+      right: 0;
+      margin-right: 30px;
+    }
+
+    .home:hover #box {
+      margin-left: -100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="home">
+    <div id="box">
+      <div class="fig fig1"></div>
+      <div class="fig fig2"></div>
+    </div>
+  </div>
+</body>
+
+</html>
