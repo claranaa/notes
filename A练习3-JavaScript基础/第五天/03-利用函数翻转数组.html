@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function arrInverse(arr) {
+      var newArr = [];
+      for (var i = arr.length - 1; i >= 0; i--) {
+        newArr[newArr.length] = arr[i];
+      }
+      return newArr;
+    }
+    var str1 = arrInverse([1, 3, 5, 7, 9]);
+    console.log(str1);
+    var str2 = arrInverse([2, 4, 6, 8, 10]);
+    console.log(str2);
+    var str3 = arrInverse(['red', 'green', 'blue']);
+    console.log(str3);
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

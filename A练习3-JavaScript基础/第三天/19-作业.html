@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /* var sum = 0;
+    for (var i = 1; i <= 100; i++) {
+      if (i % 10 == 3) {
+        continue;
+      }
+      sum += i;
+    }
+    console.log(sum); */
+    var money = 100;
+    do {
+      var index = prompt('请输入您要的操作：\n1.存钱\n2.取钱\n3.显示余额\n4.退出');
+      switch (index) {
+        case '1': {
+          var money_put = prompt('请输入您要存的钱数');
+          money = Number(money_put) + money;
+          alert('您的余额为:' + money + '');
+          break;
+        }
+        case '2': {
+          var money_get = prompt('请输入您要取的钱数');
+          money = money - money_get;
+          alert('您的余额为：' + money + '');
+          break;
+        }
+        case '3': alert('您的余额为' + money + '');
+          break;
+        case '4': alert('已退出');
+          break;
+      }
+    } while (index !== '4');
+
+
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
