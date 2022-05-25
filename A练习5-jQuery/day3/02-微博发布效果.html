@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0
+    }
+
+    ul {
+      list-style: none
+    }
+
+    .box {
+      width: 600px;
+      margin: 100px auto;
+      border: 1px solid #000;
+      padding: 20px;
+    }
+
+    textarea {
+      width: 450px;
+      height: 160px;
+      outline: none;
+      resize: none;
+    }
+
+    ul {
+      width: 450px;
+      padding-left: 80px;
+    }
+
+    ul li {
+      line-height: 25px;
+      border-bottom: 1px dashed #cccccc;
+      display: none;
+    }
+
+    input {
+      float: right;
+    }
+
+    ul li a {
+      float: right;
+    }
+  </style>
+  <script src="jquery.min.js"></script>
+  <script>
+    $(function () {
+      // 1. 点击发布按钮，动态创建一个小li，放入文本框中的内容和删除按钮，并且添加到ul中
+      $(".btn").on("click", function () {
+        var li = $("<li></li>");
+        li.html($(".txt").val() + "<a href='javascript:;'><span>删除</span></a>")
+        $("ul").prepend(li);
+        li.slideDown();
+        $(".txt").val("");
+      })
+
+      // 2. 点击删除按钮，可以删除当前的微博留言
+      $("ul").on("click", "a", function () {
+        debugger
+        // $("ul").on("click", "a" 这一句的意思应该是在ul上面绑定click事件，当底下的a标签点击的时候触发回调函数
+        // 你是想问为什么this是a吗可以理解成谁触发事件谁是this吗
+        // 不能，你看我刚刚触发事件的是span呀 对不对 但是this还是a
+        // 因为事件会冒泡对不对嗯嗯 span触发点击事件 冒泡到a标签 然后呢$("ul").on("click", "a" ,....)这一句代码的意思
+        // 应该就是当a标签触发了点击事件或者说a标签冒泡到了点击事件就触发回调
+        // 这里的this绑死了a标签e
+        console.log(this, '1')
+        // 第一个是a
+        // $(this).parent()就是a的parent -> li
+        // 因为jquery不是原生的js 是封装的库 所以我也不是很清楚
+        // 但应该就是这样的
+        $(this).parent().slideUp(function () {
+          // jquery里面的不用去深究为什么
+          // 因为你学的并不是原生js嗯嗯那就这吧
+          // 嗯嗯 还有啥问问没了题吗
+          // 好的 再见小王同学再见小余老师 你现在打字是不是快多了你你觉得呢 你现在打字还看键盘吗看呀 蠢得要死略 好了 拜拜拜拜
+          console.log(this, '2')
+          // 通过打印的信息就可以看出来
+
+          // 所以$(this)是li
+          $(this).remove();
+        });
+      })
+    })
+  </script>
+</head>
+
+<body>
+  <div class="box" id="weibo">
+    <span>微博发布</span>
+    <textarea name="" class="txt" id="" cols="30" rows="10"></textarea>
+    <button class="btn">发布</button>
+    <ul>
+
+    </ul>
+  </div>
+</body>
+
+</html>
