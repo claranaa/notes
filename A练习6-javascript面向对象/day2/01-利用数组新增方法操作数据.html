@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1. 获取相应的元素
+    var tbody = document.querySelector('tbody');
+    var search_price = document.querySelector('.search-price');
+    var start = document.querySelector('.start');
+    var end = document.querySelector('.end');
+    var product = document.querySelector('.product');
+    var search_pro = document.querySelector('.search-pro');
+    setDate(data);
+    // 2. 把数据渲染到页面中
+    function setDate(mydata) {
+      tbody.innerHTML = '';
+      mydata.forEach(function (value) {
+        var tr = document.createElement('tr');
+        tr.innerHTML = '<td>' + value.id + '</td><td>' + value.pname + '</td><td>' + value.price + '</td>';
+        tbody.appendChild(tr);
+      })
+    }
+
+    // 3. 根据价格查询商品
+    // 当我们点击了按钮，就可以根据我们的商品价格去筛选数组里面的对象
+    search_price.addEventListener('click', function () {
+      var newData = data.fliter(function (value) {
+        return value.price >= start.value && value.price <= end.value;
+      })
+      console.log(newData);
+      // 把筛选完之后的对象渲染到页面中
+      setDate(newData);
+    });
+
+    // 4. 根据商品名称查找商品
+    // 如果查询数组中唯一的元素，用some方法更合适，因为它找到这个元素，就不再进行循环，效率更高
+    search_pro.addEventListener('click', function () {
+      var arr = [];
+      data.some(function (value) {
+        if (value.pname === product.value) {
+          arr.push(value);
+          return true;
+        }
+      });
+      // 把拿到的数据渲染到页面中
+      setDate(arr);
+    })
+
+  </script>
+</body>
+
+</html>
