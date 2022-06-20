@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //flat平
+    // 将多维数组转换为低维数组
+    const arr = [1, 2, 3, 4, [5, 6]]
+    const arr1 = [1, 2, 3, 4, [5, 6, [7, 8, 9]]]
+    // console.log(arr.flat())
+    // 参数为深度，是一个数字，默认为1，2表示两层
+    // console.log(arr1.flat(2))
+
+    // flatMap
+    const arr2 = [1, 2, 3, 4]
+    const result = arr2.flatMap(item => [item * 10])
+    console.log(result)
+  </script>
+</body>
+
+</html>

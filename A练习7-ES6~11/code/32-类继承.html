@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 手机
+    function Phone(brand, price) {
+      this.brand = brand;
+      this.price = price;
+    }
+    Phone.prototype.call = function () {
+      console.log('我可以打电话');
+    }
+
+    // 智能手机
+    function SmartPhone(brand, price, color, size) {
+      Phone.call(this, brand, price);
+      this.color = color;
+      this.size = size;
+    }
+    // 设置子集构造函数的原型
+    SmartPhone.prototype = new Phone(); // 子集对象就有父级对象的一个方法call
+    // 下面这行代码不加不影响,为了做一个校正
+    SmartPhone.prototype.constructor = SmartPhone;
+    // 子类对象添加独有方法(声明子类方法)
+    SmartPhone.prototype.photo = function () {
+      console.log('我可以拍照');
+    }
+    SmartPhone.prototype.playGame = function () {
+      console.log('我可以玩游戏');
+    }
+    const chuizi = new SmartPhone('锤子', 2499, 'black', '5.5inch');
+    console.log(chuizi);
+    chuizi.call();
+  </script>
+</body>
+
+</html>

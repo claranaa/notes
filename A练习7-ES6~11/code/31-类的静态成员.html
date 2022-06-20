@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* function Phone() {
+
+    }
+    // name和change属于class类，静态成员
+    Phone.name = '手机';
+    Phone.change = function () {
+      console.log('我可以打电话');
+    };
+    Phone.prototype.size = '5.5inch';
+    Phone.prototype.telyou = function () {
+      console.log('我可以打给你');
+    }
+    let nokia = new Phone();
+    // nokia.change();
+    // console.log(nokia.name);
+    console.log(nokia.size);
+    nokia.telyou(); */
+
+    // 实例对象和函数对象的属性和方法是不通的
+
+    class Phone {
+      // 静态属性
+      static name = '手机';
+      static change() {
+        console.log('我可以改变世界');
+      }
+    }
+    let nokia = new Phone();
+    console.log(nokia.name);
+    console.log(Phone.name);
+
+  </script>
+</body>
+
+</html>

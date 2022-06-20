@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 声明一个数组
+    const xiyou = ['唐僧', '孙悟空', '猪八戒', '沙僧'];
+    // 使用for...of遍历数组
+    /* for (let v of xiyou) {  // for in中v代表索引，打印出来的是0,1,2,3   for of中v代表对应索引位置的元素值
+      console.log(v);
+    } */
+
+    let iterator = xiyou[Symbol.iterator]();  // Symbol.iterator是一个属性，这个属性是一个函数
+    // 调用对象的next方法
+    console.log(iterator.next());  // value: '唐僧'，done: false
+    console.log(iterator.next());  // 孙悟空，false
+    console.log(iterator.next());  // 猪八戒，false
+    console.log(iterator.next());  // 沙僧，false
+    console.log(iterator.next());  // undefined,true：循环遍历已经完成
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 声明一个对象
+    const banji = {
+      name: '终极一班',
+      stus: ['xiaoming', 'xiaoning', 'xiaotian', 'knight'],
+      [Symbol.iterator]() {
+        // 索引变量
+        let index = 0;
+        let that = this;
+        return {
+          next: function () {
+
+            if (index < that.stus.length) {
+              const result = { value: that.stus[index], done: false };
+              index++;
+              return result;
+            } else {
+              return { value: undefined, done: true };
+            }
+          }
+        };
+      }
+    }
+    // 需求：使用for of遍历这个对象 每一次返回的结果是这个数组里面的一个成员
+    for (let v of banji) {
+      console.log(v);
+    }
+
+    /* // 可以遍历，但不符合面向对象的一种思想
+    banji.stus.forEach(item => {
+      console.log(item);
+    }) */
+  </script>
+</body>
+
+</html>

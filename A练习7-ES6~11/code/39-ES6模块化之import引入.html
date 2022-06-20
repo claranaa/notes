@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script type="module">
+    // 1. 通用的导入方式 import * as 文件名 from 路径
+    // 引入m1.js模块内容
+    /* import * as m1 from "./src/js/m1.js";
+    // 引入m2.js模块内容
+    import * as m2 from "./src/js/m2.js";
+    // 引入m3.js模块内容
+    import * as m3 from "./src/js/m3.js"; */
+
+    // 2. 解构赋值形式
+    // 应对分别暴露
+    /* import { school, teach } from "./src/js/m1.js";
+
+    // 应对统一暴露
+    import { school as guigu, findJob } from "./src/js/m2.js";
+    // 应对默认暴露
+    import { default as m3 } from "./src/js/m3.js";
+    console.log(m3); */
+
+
+    /* console.log(school);
+    console.log(teach); */
+    // console.log(guigu, findJob);
+
+    // 3. 简便形式
+    // 只能针对默认暴露
+    import m3 from "./src/js/m3.js";
+    console.log(m3);
+  </script>
+</body>
+
+</html>
