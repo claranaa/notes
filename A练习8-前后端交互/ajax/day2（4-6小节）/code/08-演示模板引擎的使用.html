@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 1. 导入模板引擎 -->
+  <!-- 在window全局，多一个函数，叫做template('模板的Id','需要渲染的数据对象') -->
+  <script src="./lib/template-web.js"></script>
+  <script src="./lib/jquery.js"></script>
+</head>
+
+<body>
+  <div id="container"></div>
+</body>
+<!-- 3. 定义模板 -->
+<!-- 3.1 模板的HTML结构，必须定义到script中 -->
+
+<!-- 把这个script标签中的内容当做html去解析 -->
+<!-- 双括号{{}}代表一个占位符，是来给数据占位的 -->
+<script type="text/html" id="tpl-user">
+<h1>{{name}} ------ {{age}}</h1>
+{{@test}}
+<div>
+  {{if flag===0}}
+  flag的值是0
+  {{else if flag===1}}
+  flag的值是1
+  {{/if}}
+</div>
+<ul>
+  {{each hobby}}
+  <li>索引是：{{$index}}，循环项是：{{$value}}</li>
+  {{/each}}
+</ul>
+
+<h3>{{regTime | dateFormat}}</h3>
+</script>
+
+<script type="text/javascript">  // 希望将JS中的所有代码都当做JS去解析去执行 默认的type为text/javascript
+  // 定义处理时间的过滤器
+  template.defaults.imports.dateFormat = function (date) {
+    var y = date.getFullYear();
+    var m = date.getMonth() + 1;
+    var d = date.getDate();
+    return y + '-' + m + '-' + d;
+  }
+  // 2. 定义需要渲染的对象
+  var data = {
+    name: 'zs',
+    age: 20,
+    test: '<h3>测试原文输出</h3>',
+    flag: 1,
+    hobby: ['吃饭', '睡觉', '写代码'],
+    regTime: new Date()
+  }
+
+  // 4. 调用template函数 
+  var htmlstr = template('tpl-user', data);
+  console.log(htmlstr);
+
+  // 5. 渲染HTML结构
+  $('#container').html(htmlstr);
+
+</script>
+
+
+
+
+
+</html>
